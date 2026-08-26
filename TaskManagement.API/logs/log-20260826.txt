@@ -1331,3 +1331,63 @@ WHERE [t].[UserId] = @userId
 [2026-08-26 01:18:48 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
 [2026-08-26 01:18:48 INF] HTTP GET /api/tasks → 200 (52.1210ms)
 [2026-08-26 01:18:48 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 499 null application/json; charset=utf-8 64.2796ms
+[2026-08-26 01:19:14 INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-08-26 01:19:14 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[2026-08-26 01:19:14 INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+[2026-08-26 01:19:14 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+[2026-08-26 01:19:14 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-08-26 01:19:14 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-08-26 01:19:14 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-08-26 01:19:14 INF] No migrations were applied. The database is already up to date.
+[2026-08-26 01:19:14 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+[2026-08-26 01:19:14 INF] 🚀 TaskManagement API starting...
+[2026-08-26 01:19:14 INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-08-26 01:19:15 INF] Now listening on: http://localhost:5000
+[2026-08-26 01:19:15 INF] Application started. Press Ctrl+C to shut down.
+[2026-08-26 01:19:15 INF] Hosting environment: Development
+[2026-08-26 01:19:15 INF] Content root path: D:\Project\TaskAPI\TaskManagement.API
+[2026-08-26 01:19:15 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/index.html → 304 (157.2115ms)
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 338.158ms
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 22.9283ms
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/swagger-ui.css → 304 (19.6341ms)
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/index.js → 304 (1.0905ms)
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/index.css → 304 (15.9702ms)
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (9.7135ms)
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 35.3053ms
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 33.1377ms
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (22.8912ms)
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 40.8196ms
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 41.4474ms
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 61.5478ms
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 84.7401ms
+[2026-08-26 01:19:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-08-26 01:19:16 INF] HTTP GET /swagger/v1/swagger.json → 200 (31.2166ms)
+[2026-08-26 01:19:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 45.5181ms
