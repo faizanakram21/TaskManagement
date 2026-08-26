@@ -39,11 +39,21 @@ builder.Host.UseSerilog();
 // =============================================
 // 🔥 FIREBASE INITIALIZE
 // =============================================
-FirebaseApp.Create(new AppOptions
+// =============================================
+// 🔥 FIREBASE INITIALIZE (optional — skip if credentials missing, e.g. in CI)
+// =============================================
+var firebaseCredPath = builder.Configuration["Firebase:CredentialPath"];
+if (!string.IsNullOrEmpty(firebaseCredPath) && File.Exists(firebaseCredPath))
 {
-    Credential = GoogleCredential.FromFile(
-        builder.Configuration["Firebase:CredentialPath"]!)
-});
+    FirebaseApp.Create(new AppOptions
+    {
+        Credential = GoogleCredential.FromFile(firebaseCredPath)
+    });
+}
+else
+{
+    Log.Warning("⚠️ Firebase credentials not found at '{Path}'. Skipping Firebase initialization.", firebaseCredPath);
+}
 
 // =============================================
 // 🗄️ DATABASE
