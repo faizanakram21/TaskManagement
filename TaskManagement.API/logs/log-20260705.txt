@@ -1,0 +1,510 @@
+[2026-07-05 03:55:37 INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-07-05 03:55:37 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[2026-07-05 03:55:37 INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+[2026-07-05 03:55:38 INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+[2026-07-05 03:55:38 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-07-05 03:55:38 INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-07-05 03:55:38 INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-07-05 03:55:38 INF] No migrations were applied. The database is already up to date.
+[2026-07-05 03:55:38 INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+[2026-07-05 03:55:38 INF] 🚀 TaskManagement API starting...
+[2026-07-05 03:55:38 INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-07-05 03:55:38 INF] Now listening on: http://localhost:5000
+[2026-07-05 03:55:38 INF] Application started. Press Ctrl+C to shut down.
+[2026-07-05 03:55:38 INF] Hosting environment: Development
+[2026-07-05 03:55:38 INF] Content root path: D:\Project\TaskAPI\TaskManagement.API
+[2026-07-05 03:55:39 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/index.html → 304 (83.8940ms)
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 370.4949ms
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/index.js → 304 (0.4637ms)
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 38.938ms
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 19.5079ms
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/index.css → 304 (9.1383ms)
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/swagger-ui.css → 304 (27.3585ms)
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (13.9336ms)
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 28.5935ms
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 48.5842ms
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 31.6252ms
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (20.3916ms)
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 45.3117ms
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.3942ms
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-07-05 03:55:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - null null
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/favicon-32x32.png → 304 (0.3729ms)
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/favicon-32x32.png - 304 null null 17.8397ms
+[2026-07-05 03:55:40 INF] HTTP GET /swagger/v1/swagger.json → 200 (17.1908ms)
+[2026-07-05 03:55:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 73.5233ms
+[2026-07-05 03:56:26 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-07-05 03:56:26 INF] CORS policy execution successful.
+[2026-07-05 03:56:26 INF] HTTP OPTIONS /api/auth/login → 204 (6.0711ms)
+[2026-07-05 03:56:26 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 13.4383ms
+[2026-07-05 03:56:26 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 48
+[2026-07-05 03:56:26 INF] CORS policy execution successful.
+[2026-07-05 03:56:28 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-07-05 03:56:28 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-07-05 03:56:40 INF] Executed DbCommand (79ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-07-05 03:56:40 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 03:56:40 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 11760.3232ms
+[2026-07-05 03:56:40 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-07-05 03:56:40 INF] HTTP POST /api/auth/login → 401 (13365.5554ms)
+[2026-07-05 03:56:40 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 13370.4372ms
+[2026-07-05 03:58:48 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-07-05 03:58:48 INF] CORS policy execution successful.
+[2026-07-05 03:58:48 INF] HTTP OPTIONS /api/auth/login → 204 (0.9912ms)
+[2026-07-05 03:58:48 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 8.0639ms
+[2026-07-05 03:58:48 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 48
+[2026-07-05 03:58:48 INF] CORS policy execution successful.
+[2026-07-05 03:58:48 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-07-05 03:58:48 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-07-05 03:58:51 INF] Executed DbCommand (6ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-07-05 03:58:51 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 03:58:51 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 3485.5906ms
+[2026-07-05 03:58:51 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-07-05 03:58:51 INF] HTTP POST /api/auth/login → 401 (3493.2389ms)
+[2026-07-05 03:58:51 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 3495.5525ms
+[2026-07-05 03:59:32 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/register - null null
+[2026-07-05 03:59:32 INF] CORS policy execution successful.
+[2026-07-05 03:59:32 INF] HTTP OPTIONS /api/auth/register → 204 (0.4748ms)
+[2026-07-05 03:59:32 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/register - 204 null null 5.7635ms
+[2026-07-05 03:59:32 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json 71
+[2026-07-05 03:59:32 INF] CORS policy execution successful.
+[2026-07-05 03:59:32 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-07-05 03:59:32 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-07-05 03:59:32 INF] Executed DbCommand (4ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-07-05 03:59:33 INF] Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (Size = 100), @p3='?' (Size = 4000), @p4='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [Name], [PasswordHash], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-07-05 03:59:36 INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-07-05 03:59:36 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-07-05 03:59:36 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 3163.0872ms
+[2026-07-05 03:59:36 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-07-05 03:59:36 INF] HTTP POST /api/auth/register → 200 (3176.9356ms)
+[2026-07-05 03:59:36 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 3178.8054ms
+[2026-07-05 03:59:36 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 03:59:36 INF] CORS policy execution successful.
+[2026-07-05 03:59:36 INF] HTTP OPTIONS /api/tasks → 204 (0.7272ms)
+[2026-07-05 03:59:36 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 34.1677ms
+[2026-07-05 03:59:36 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 03:59:36 INF] CORS policy execution successful.
+[2026-07-05 03:59:36 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 03:59:36 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 03:59:39 INF] Executed DbCommand (8ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-07-05 03:59:39 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 03:59:39 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 3798.2105ms
+[2026-07-05 03:59:39 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 03:59:39 INF] HTTP GET /api/tasks → 200 (3873.6915ms)
+[2026-07-05 03:59:39 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 3875.6646ms
+[2026-07-05 04:00:06 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:06 INF] CORS policy execution successful.
+[2026-07-05 04:00:06 INF] HTTP OPTIONS /api/tasks → 204 (0.4240ms)
+[2026-07-05 04:00:06 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 6.7395ms
+[2026-07-05 04:00:06 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json 55
+[2026-07-05 04:00:06 INF] CORS policy execution successful.
+[2026-07-05 04:00:06 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-07-05 04:00:06 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 04:00:11 INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-07-05 04:00:12 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-07-05 04:00:12 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 5729.7691ms
+[2026-07-05 04:00:12 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-07-05 04:00:12 INF] HTTP POST /api/tasks → 200 (5741.5605ms)
+[2026-07-05 04:00:12 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 5743.9706ms
+[2026-07-05 04:00:12 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:12 INF] CORS policy execution successful.
+[2026-07-05 04:00:12 INF] HTTP OPTIONS /api/tasks → 204 (0.6993ms)
+[2026-07-05 04:00:12 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 6.7101ms
+[2026-07-05 04:00:12 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:12 INF] CORS policy execution successful.
+[2026-07-05 04:00:12 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:12 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 04:00:14 INF] Executed DbCommand (3ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-07-05 04:00:14 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 04:00:15 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 2552.4682ms
+[2026-07-05 04:00:15 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:15 INF] HTTP GET /api/tasks → 200 (2561.7146ms)
+[2026-07-05 04:00:15 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 2565.3205ms
+[2026-07-05 04:00:22 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:22 INF] CORS policy execution successful.
+[2026-07-05 04:00:22 INF] HTTP OPTIONS /api/tasks → 204 (0.8544ms)
+[2026-07-05 04:00:22 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 5.1245ms
+[2026-07-05 04:00:22 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:22 INF] CORS policy execution successful.
+[2026-07-05 04:00:22 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:22 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 04:00:24 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 04:00:24 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 2337.5125ms
+[2026-07-05 04:00:24 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:24 INF] HTTP GET /api/tasks → 200 (2344.4696ms)
+[2026-07-05 04:00:24 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 2347.9025ms
+[2026-07-05 04:00:45 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:45 INF] CORS policy execution successful.
+[2026-07-05 04:00:45 INF] HTTP OPTIONS /api/tasks → 204 (1.1595ms)
+[2026-07-05 04:00:45 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 6.9314ms
+[2026-07-05 04:00:45 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:45 INF] CORS policy execution successful.
+[2026-07-05 04:00:45 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:45 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 04:00:48 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 04:00:48 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 3272.2991ms
+[2026-07-05 04:00:48 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:48 INF] HTTP GET /api/tasks → 200 (3279.6277ms)
+[2026-07-05 04:00:48 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 3282.1654ms
+[2026-07-05 04:00:54 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:54 INF] CORS policy execution successful.
+[2026-07-05 04:00:54 INF] HTTP OPTIONS /api/tasks → 204 (0.8228ms)
+[2026-07-05 04:00:54 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 5.2317ms
+[2026-07-05 04:00:54 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 04:00:54 INF] CORS policy execution successful.
+[2026-07-05 04:00:54 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:54 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 04:00:57 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 04:00:58 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 3679.4265ms
+[2026-07-05 04:00:58 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:00:58 INF] HTTP GET /api/tasks → 200 (3687.4403ms)
+[2026-07-05 04:00:58 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 3691.0007ms
+[2026-07-05 04:01:13 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 04:01:13 INF] CORS policy execution successful.
+[2026-07-05 04:01:13 INF] HTTP OPTIONS /api/tasks → 204 (2.3755ms)
+[2026-07-05 04:01:13 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 6.0555ms
+[2026-07-05 04:01:13 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 04:01:13 INF] CORS policy execution successful.
+[2026-07-05 04:01:13 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:01:13 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 04:01:16 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 04:01:17 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 3467.6411ms
+[2026-07-05 04:01:17 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 04:01:17 INF] HTTP GET /api/tasks → 200 (3473.8253ms)
+[2026-07-05 04:01:17 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 3477.0441ms
+[2026-07-05 05:11:25 INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-07-05 05:11:25 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[2026-07-05 05:11:25 INF] Executed DbCommand (71ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+[2026-07-05 05:11:25 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+[2026-07-05 05:11:25 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-07-05 05:11:25 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-07-05 05:11:25 INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-07-05 05:11:25 INF] Applying migration '20260705121108_AddPaymentTable'.
+[2026-07-05 05:11:26 INF] Executed DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [IsPro] bit NOT NULL DEFAULT CAST(0 AS bit);
+[2026-07-05 05:11:26 INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [ProExpiresAt] datetime2 NULL;
+[2026-07-05 05:11:26 INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Payments] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [StripePaymentIntentId] nvarchar(200) NOT NULL,
+    [Amount] bigint NOT NULL,
+    [Currency] nvarchar(10) NOT NULL,
+    [Status] nvarchar(20) NOT NULL,
+    [PlanType] nvarchar(20) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Payments] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Payments_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+[2026-07-05 05:11:26 INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Payments_UserId] ON [Payments] ([UserId]);
+[2026-07-05 05:11:26 INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260705121108_AddPaymentTable', N'10.0.5');
+[2026-07-05 05:11:26 INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+[2026-07-05 05:13:51 INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-07-05 05:13:51 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[2026-07-05 05:13:51 INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+[2026-07-05 05:13:51 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+[2026-07-05 05:13:51 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-07-05 05:13:51 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-07-05 05:13:51 INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-07-05 05:13:51 INF] No migrations were applied. The database is already up to date.
+[2026-07-05 05:13:51 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+[2026-07-05 05:13:51 INF] 🚀 TaskManagement API starting...
+[2026-07-05 05:13:51 INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-07-05 05:13:52 INF] Now listening on: http://localhost:5000
+[2026-07-05 05:13:52 INF] Application started. Press Ctrl+C to shut down.
+[2026-07-05 05:13:52 INF] Hosting environment: Development
+[2026-07-05 05:13:52 INF] Content root path: D:\Project\TaskAPI\TaskManagement.API
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/index.html → 304 (87.8712ms)
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 380.9317ms
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/index.css → 304 (37.7866ms)
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/swagger-ui.css → 304 (6.8305ms)
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (26.9794ms)
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 87.1523ms
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 86.3823ms
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 88.8205ms
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/index.js → 304 (0.8679ms)
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (31.3249ms)
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 99.3913ms
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 111.0574ms
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 125.7293ms
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.2205ms
+[2026-07-05 05:13:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-07-05 05:13:53 INF] HTTP GET /swagger/v1/swagger.json → 200 (54.9473ms)
+[2026-07-05 05:13:53 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 72.0008ms
+[2026-07-05 05:31:44 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 05:31:44 INF] CORS policy execution successful.
+[2026-07-05 05:31:44 INF] HTTP OPTIONS /api/tasks → 204 (12.3586ms)
+[2026-07-05 05:31:44 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 29.3115ms
+[2026-07-05 05:31:44 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 05:31:44 INF] CORS policy execution successful.
+[2026-07-05 05:31:44 INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/5/2026 11:14:35 AM', Current time (UTC): '7/5/2026 12:31:44 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+[2026-07-05 05:31:44 INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/5/2026 11:14:35 AM', Current time (UTC): '7/5/2026 12:31:44 PM'.
+[2026-07-05 05:31:44 INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+[2026-07-05 05:31:44 INF] AuthenticationScheme: Bearer was challenged.
+[2026-07-05 05:31:44 INF] HTTP GET /api/tasks → 401 (704.6764ms)
+[2026-07-05 05:31:44 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 401 0 null 719.2769ms
+[2026-07-05 05:31:45 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/refresh - null null
+[2026-07-05 05:31:45 INF] CORS policy execution successful.
+[2026-07-05 05:31:45 INF] HTTP OPTIONS /api/auth/refresh → 204 (4.3804ms)
+[2026-07-05 05:31:45 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/refresh - 204 null null 18.6812ms
+[2026-07-05 05:31:45 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/refresh - application/json 107
+[2026-07-05 05:31:45 INF] CORS policy execution successful.
+[2026-07-05 05:31:45 INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/5/2026 11:14:35 AM', Current time (UTC): '7/5/2026 12:31:45 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+[2026-07-05 05:31:45 INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/5/2026 11:14:35 AM', Current time (UTC): '7/5/2026 12:31:45 PM'.
+[2026-07-05 05:31:45 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Refresh (TaskManagement.API)'
+[2026-07-05 05:31:45 INF] Route matched with {action = "Refresh", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Refresh(TaskManagement.Application.DTOs.RefreshTokenRequestDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-07-05 05:31:47 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-07-05 05:31:47 INF] CORS policy execution successful.
+[2026-07-05 05:31:47 INF] HTTP OPTIONS /api/auth/login → 204 (1.2972ms)
+[2026-07-05 05:31:47 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 17.0825ms
+[2026-07-05 05:31:47 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 48
+[2026-07-05 05:31:47 INF] CORS policy execution successful.
+[2026-07-05 05:31:47 INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/5/2026 11:14:35 AM', Current time (UTC): '7/5/2026 12:31:47 PM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+[2026-07-05 05:31:47 INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '7/5/2026 11:14:35 AM', Current time (UTC): '7/5/2026 12:31:47 PM'.
+[2026-07-05 05:31:47 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-07-05 05:31:47 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-07-05 05:31:51 INF] Executed DbCommand (3,554ms) [Parameters=[@token='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedAt], [r].[ExpiresAt], [r].[IsRevoked], [r].[Token], [r].[UserId], [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [RefreshTokens] AS [r]
+INNER JOIN [Users] AS [u] ON [r].[UserId] = [u].[Id]
+WHERE [r].[Token] = @token
+[2026-07-05 05:31:51 INF] Executed DbCommand (7ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-07-05 05:31:53 INF] Executed DbCommand (17ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = Boolean), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [RefreshTokens] SET [IsRevoked] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p2, @p3, @p4, @p5, @p6);
+[2026-07-05 05:31:53 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-07-05 05:31:53 INF] Executed action TaskManagement.API.Controllers.AuthController.Refresh (TaskManagement.API) in 7546.1752ms
+[2026-07-05 05:31:53 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Refresh (TaskManagement.API)'
+[2026-07-05 05:31:53 INF] HTTP POST /api/auth/refresh → 200 (7878.6426ms)
+[2026-07-05 05:31:53 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/refresh - 200 null application/json; charset=utf-8 7899.7023ms
+[2026-07-05 05:31:53 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-07-05 05:31:53 INF] CORS policy execution successful.
+[2026-07-05 05:31:53 INF] HTTP OPTIONS /api/tasks → 204 (1.2949ms)
+[2026-07-05 05:31:53 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 13.4361ms
+[2026-07-05 05:31:53 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 05:31:53 INF] CORS policy execution successful.
+[2026-07-05 05:31:53 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 05:31:53 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 05:31:56 INF] Executed DbCommand (6ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-07-05 05:31:56 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 05:31:56 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 3548.7914ms
+[2026-07-05 05:31:57 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 05:31:57 INF] HTTP GET /api/tasks → 200 (3634.7235ms)
+[2026-07-05 05:31:57 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 3648.0369ms
+[2026-07-05 05:31:57 INF] Executed DbCommand (41ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-07-05 05:31:57 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-07-05 05:31:58 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 10281.9458ms
+[2026-07-05 05:31:58 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-07-05 05:31:58 INF] HTTP POST /api/auth/login → 200 (10505.3029ms)
+[2026-07-05 05:31:58 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 10515.9631ms
+[2026-07-05 05:31:58 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-07-05 05:31:58 INF] CORS policy execution successful.
+[2026-07-05 05:31:58 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 05:31:58 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-07-05 05:31:59 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-07-05 05:31:59 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 1494.9154ms
+[2026-07-05 05:31:59 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-07-05 05:31:59 INF] HTTP GET /api/tasks → 200 (1522.7117ms)
+[2026-07-05 05:31:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 1533.5524ms
+[2026-07-05 05:32:04 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/payment/create-intent - null null
+[2026-07-05 05:32:04 INF] CORS policy execution successful.
+[2026-07-05 05:32:04 INF] HTTP OPTIONS /api/payment/create-intent → 204 (4.7170ms)
+[2026-07-05 05:32:04 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/payment/create-intent - 204 null null 18.2098ms
+[2026-07-05 05:32:04 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - application/json 22
+[2026-07-05 05:32:04 INF] CORS policy execution successful.
+[2026-07-05 05:32:04 INF] Executing endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:04 INF] Route matched with {action = "CreateIntent", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateIntent(TaskManagement.Application.DTOs.CreatePaymentIntentDto) on controller TaskManagement.API.Controllers.PaymentController (TaskManagement.API).
+[2026-07-05 05:32:04 INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 05:32:04 INF] Executed action TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API) in 327.3511ms
+[2026-07-05 05:32:04 INF] Executed endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:04 INF] HTTP POST /api/payment/create-intent → 400 (383.5730ms)
+[2026-07-05 05:32:04 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - 400 null application/json; charset=utf-8 398.1963ms
+[2026-07-05 05:32:11 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/payment/create-intent - null null
+[2026-07-05 05:32:11 INF] CORS policy execution successful.
+[2026-07-05 05:32:11 INF] HTTP OPTIONS /api/payment/create-intent → 204 (5.5673ms)
+[2026-07-05 05:32:11 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/payment/create-intent - 204 null null 25.8498ms
+[2026-07-05 05:32:11 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - application/json 21
+[2026-07-05 05:32:11 INF] CORS policy execution successful.
+[2026-07-05 05:32:11 INF] Executing endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:11 INF] Route matched with {action = "CreateIntent", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateIntent(TaskManagement.Application.DTOs.CreatePaymentIntentDto) on controller TaskManagement.API.Controllers.PaymentController (TaskManagement.API).
+[2026-07-05 05:32:11 INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 05:32:11 INF] Executed action TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API) in 245.2766ms
+[2026-07-05 05:32:11 INF] Executed endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:11 INF] HTTP POST /api/payment/create-intent → 400 (263.3398ms)
+[2026-07-05 05:32:11 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - 400 null application/json; charset=utf-8 279.2424ms
+[2026-07-05 05:32:12 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - application/json 22
+[2026-07-05 05:32:12 INF] CORS policy execution successful.
+[2026-07-05 05:32:12 INF] Executing endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:12 INF] Route matched with {action = "CreateIntent", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateIntent(TaskManagement.Application.DTOs.CreatePaymentIntentDto) on controller TaskManagement.API.Controllers.PaymentController (TaskManagement.API).
+[2026-07-05 05:32:12 INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 05:32:12 INF] Executed action TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API) in 260.2097ms
+[2026-07-05 05:32:12 INF] Executed endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:12 INF] HTTP POST /api/payment/create-intent → 400 (280.2268ms)
+[2026-07-05 05:32:13 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - 400 null application/json; charset=utf-8 297.5411ms
+[2026-07-05 05:32:15 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - application/json 21
+[2026-07-05 05:32:15 INF] CORS policy execution successful.
+[2026-07-05 05:32:15 INF] Executing endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:15 INF] Route matched with {action = "CreateIntent", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateIntent(TaskManagement.Application.DTOs.CreatePaymentIntentDto) on controller TaskManagement.API.Controllers.PaymentController (TaskManagement.API).
+[2026-07-05 05:32:15 INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 05:32:15 INF] Executed action TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API) in 259.9197ms
+[2026-07-05 05:32:15 INF] Executed endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:15 INF] HTTP POST /api/payment/create-intent → 400 (285.2562ms)
+[2026-07-05 05:32:15 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - 400 null application/json; charset=utf-8 296.2359ms
+[2026-07-05 05:32:19 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/payment/create-intent - null null
+[2026-07-05 05:32:19 INF] CORS policy execution successful.
+[2026-07-05 05:32:19 INF] HTTP OPTIONS /api/payment/create-intent → 204 (4.9150ms)
+[2026-07-05 05:32:19 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/payment/create-intent - 204 null null 17.9822ms
+[2026-07-05 05:32:19 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - application/json 22
+[2026-07-05 05:32:19 INF] CORS policy execution successful.
+[2026-07-05 05:32:19 INF] Executing endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:19 INF] Route matched with {action = "CreateIntent", controller = "Payment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateIntent(TaskManagement.Application.DTOs.CreatePaymentIntentDto) on controller TaskManagement.API.Controllers.PaymentController (TaskManagement.API).
+[2026-07-05 05:32:20 INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-07-05 05:32:20 INF] Executed action TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API) in 245.0032ms
+[2026-07-05 05:32:20 INF] Executed endpoint 'TaskManagement.API.Controllers.PaymentController.CreateIntent (TaskManagement.API)'
+[2026-07-05 05:32:20 INF] HTTP POST /api/payment/create-intent → 400 (259.1430ms)
+[2026-07-05 05:32:20 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/payment/create-intent - 400 null application/json; charset=utf-8 270.7713ms

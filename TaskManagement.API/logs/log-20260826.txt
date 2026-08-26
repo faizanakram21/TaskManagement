@@ -1,0 +1,1333 @@
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-08-26 00:45:51 INF] HTTP GET /swagger/index.html → 304 (1.1635ms)
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 148.9794ms
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 18.1162ms
+[2026-08-26 00:45:51 INF] HTTP GET /swagger/swagger-ui.css → 304 (0.2997ms)
+[2026-08-26 00:45:51 INF] HTTP GET /swagger/index.css → 304 (0.1993ms)
+[2026-08-26 00:45:51 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (0.2216ms)
+[2026-08-26 00:45:51 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (0.1939ms)
+[2026-08-26 00:45:51 INF] HTTP GET /swagger/index.js → 304 (0.4813ms)
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 38.1618ms
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 36.3299ms
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 37.4397ms
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 39.38ms
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 46.0404ms
+[2026-08-26 00:45:51 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.0223ms
+[2026-08-26 00:45:51 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-08-26 00:45:52 INF] HTTP GET /swagger/v1/swagger.json → 200 (31.2745ms)
+[2026-08-26 00:45:52 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 119.7134ms
+[2026-08-26 00:46:27 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 111
+[2026-08-26 00:46:27 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:27 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:27 INF] Executed DbCommand (15ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 00:46:28 INF] Executed DbCommand (42ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 00:46:28 INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:28 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:28 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 620.6566ms
+[2026-08-26 00:46:28 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:28 INF] HTTP POST /api/auth/register → 200 (634.5717ms)
+[2026-08-26 00:46:28 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 643.6476ms
+[2026-08-26 00:46:28 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 89
+[2026-08-26 00:46:28 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:28 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:28 INF] Executed DbCommand (5ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:46:29 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:29 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:29 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 632.025ms
+[2026-08-26 00:46:29 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:29 INF] HTTP POST /api/auth/login → 200 (644.5043ms)
+[2026-08-26 00:46:29 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 651.7323ms
+[2026-08-26 00:46:29 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 88
+[2026-08-26 00:46:29 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:29 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:29 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:46:29 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 00:46:29 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 14.4626ms
+[2026-08-26 00:46:29 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:29 INF] HTTP POST /api/auth/login → 401 (28.1569ms)
+[2026-08-26 00:46:29 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 35.3496ms
+[2026-08-26 00:46:29 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 116
+[2026-08-26 00:46:29 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:29 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:29 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 00:46:29 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 00:46:29 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:29 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:29 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 612.8295ms
+[2026-08-26 00:46:29 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:29 INF] HTTP POST /api/auth/register → 200 (621.8702ms)
+[2026-08-26 00:46:29 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 628.1049ms
+[2026-08-26 00:46:29 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 89
+[2026-08-26 00:46:29 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:29 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:29 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:46:30 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:30 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:30 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 611.6231ms
+[2026-08-26 00:46:30 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:30 INF] HTTP POST /api/auth/login → 200 (627.1959ms)
+[2026-08-26 00:46:30 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 633.0952ms
+[2026-08-26 00:46:30 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 116
+[2026-08-26 00:46:30 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:30 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:30 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 00:46:31 INF] Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 00:46:31 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:31 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 597.8185ms
+[2026-08-26 00:46:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] HTTP POST /api/auth/register → 200 (605.1578ms)
+[2026-08-26 00:46:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 621.2684ms
+[2026-08-26 00:46:31 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 95
+[2026-08-26 00:46:31 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:31 INF] Executed DbCommand (2ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:46:31 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 00:46:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 560.7798ms
+[2026-08-26 00:46:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] HTTP POST /api/auth/login → 401 (569.5931ms)
+[2026-08-26 00:46:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 579.1647ms
+[2026-08-26 00:46:31 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 54
+[2026-08-26 00:46:31 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:31 INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-08-26 00:46:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 4.0112ms
+[2026-08-26 00:46:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] HTTP POST /api/auth/register → 400 (14.6633ms)
+[2026-08-26 00:46:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 21.4146ms
+[2026-08-26 00:46:31 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 57
+[2026-08-26 00:46:31 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:31 INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-08-26 00:46:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 3.9757ms
+[2026-08-26 00:46:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] HTTP POST /api/auth/register → 400 (11.8349ms)
+[2026-08-26 00:46:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 18.5491ms
+[2026-08-26 00:46:31 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 60
+[2026-08-26 00:46:31 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:31 INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-08-26 00:46:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 4.281ms
+[2026-08-26 00:46:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] HTTP POST /api/auth/register → 400 (14.0545ms)
+[2026-08-26 00:46:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 21.2251ms
+[2026-08-26 00:46:31 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 115
+[2026-08-26 00:46:31 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:31 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:31 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 00:46:32 INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 00:46:32 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:32 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:32 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 587.8816ms
+[2026-08-26 00:46:32 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:46:32 INF] HTTP POST /api/auth/register → 200 (598.4451ms)
+[2026-08-26 00:46:32 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 606.1478ms
+[2026-08-26 00:46:32 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 63
+[2026-08-26 00:46:32 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:32 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:46:32 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:46:33 INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:33 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:46:33 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 602.3232ms
+[2026-08-26 00:46:33 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:46:33 INF] HTTP POST /api/auth/login → 200 (611.0080ms)
+[2026-08-26 00:46:33 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 620.9139ms
+[2026-08-26 00:46:33 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json; charset=utf-8 172
+[2026-08-26 00:46:33 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 00:46:33 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:46:33 INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:33 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 00:46:33 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 19.6098ms
+[2026-08-26 00:46:33 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 00:46:33 INF] HTTP POST /api/tasks → 200 (31.9588ms)
+[2026-08-26 00:46:33 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 41.1098ms
+[2026-08-26 00:46:36 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json; charset=utf-8 194
+[2026-08-26 00:46:36 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:46:36 INF] Executed DbCommand (49ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:36 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 00:46:36 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 62.8633ms
+[2026-08-26 00:46:36 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] HTTP POST /api/tasks → 200 (75.6449ms)
+[2026-08-26 00:46:36 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 87.4283ms
+[2026-08-26 00:46:36 INF] Request starting HTTP/1.1 DELETE http://localhost:5000/api/tasks/35 - null null
+[2026-08-26 00:46:36 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Delete (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] Route matched with {action = "Delete", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:46:36 INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[Id] = @p
+[2026-08-26 00:46:36 INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Tasks]
+OUTPUT 1
+WHERE [Id] = @p0;
+[2026-08-26 00:46:36 INF] Executing StatusCodeResult, setting HTTP status code 204
+[2026-08-26 00:46:36 INF] Executed action TaskManagement.API.Controllers.TasksController.Delete (TaskManagement.API) in 30.1766ms
+[2026-08-26 00:46:36 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Delete (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] HTTP DELETE /api/tasks/35 → 204 (40.1104ms)
+[2026-08-26 00:46:36 INF] Request finished HTTP/1.1 DELETE http://localhost:5000/api/tasks/35 - 204 null null 48.3514ms
+[2026-08-26 00:46:36 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 00:46:36 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:46:36 INF] Executed DbCommand (7ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 00:46:36 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 00:46:36 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 19.7975ms
+[2026-08-26 00:46:36 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] HTTP GET /api/tasks → 200 (34.0683ms)
+[2026-08-26 00:46:36 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 45.0753ms
+[2026-08-26 00:46:36 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 00:46:36 INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+[2026-08-26 00:46:36 INF] AuthenticationScheme: Bearer was challenged.
+[2026-08-26 00:46:36 INF] HTTP GET /api/tasks → 401 (6.7866ms)
+[2026-08-26 00:46:36 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 401 0 null 15.5658ms
+[2026-08-26 00:46:36 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json; charset=utf-8 276
+[2026-08-26 00:46:36 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:46:36 INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:46:36 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 00:46:36 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 23.479ms
+[2026-08-26 00:46:36 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] HTTP POST /api/tasks → 200 (36.2714ms)
+[2026-08-26 00:46:36 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 43.947ms
+[2026-08-26 00:46:36 INF] Request starting HTTP/1.1 PUT http://localhost:5000/api/tasks/36 - application/json; charset=utf-8 242
+[2026-08-26 00:46:36 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Update (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] Route matched with {action = "Update", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, TaskManagement.Application.DTOs.UpdateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:46:36 INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[Id] = @p
+[2026-08-26 00:46:36 INF] Executed DbCommand (10ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Tasks] SET [CreatedAt] = @p0, [Description] = @p1, [IsCompleted] = @p2, [Title] = @p3, [UserId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+[2026-08-26 00:46:36 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 00:46:36 INF] Executed action TaskManagement.API.Controllers.TasksController.Update (TaskManagement.API) in 28.2071ms
+[2026-08-26 00:46:36 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Update (TaskManagement.API)'
+[2026-08-26 00:46:36 INF] HTTP PUT /api/tasks/36 → 200 (35.8980ms)
+[2026-08-26 00:46:36 INF] Request finished HTTP/1.1 PUT http://localhost:5000/api/tasks/36 - 200 null application/json; charset=utf-8 42.2648ms
+[2026-08-26 00:57:30 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 112
+[2026-08-26 00:57:30 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:57:30 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:57:30 INF] Executed DbCommand (47ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 00:57:31 INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 00:57:31 INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:57:31 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:57:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 756.4869ms
+[2026-08-26 00:57:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:57:31 INF] HTTP POST /api/auth/register → 200 (768.5804ms)
+[2026-08-26 00:57:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 778.5118ms
+[2026-08-26 00:59:33 INF] Executed DbCommand (53ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-08-26 00:59:33 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[2026-08-26 00:59:33 INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+[2026-08-26 00:59:33 INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+[2026-08-26 00:59:33 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-08-26 00:59:33 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-08-26 00:59:33 INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-08-26 00:59:33 INF] No migrations were applied. The database is already up to date.
+[2026-08-26 00:59:33 INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+[2026-08-26 00:59:33 INF] 🚀 TaskManagement API starting...
+[2026-08-26 00:59:33 INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-08-26 00:59:34 INF] Now listening on: http://localhost:5000
+[2026-08-26 00:59:34 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-08-26 00:59:34 INF] Application started. Press Ctrl+C to shut down.
+[2026-08-26 00:59:34 INF] Hosting environment: Development
+[2026-08-26 00:59:34 INF] Content root path: D:\Project\TaskAPI\TaskManagement.API
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/index.html → 304 (176.5487ms)
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 447.3621ms
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 22.801ms
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/index.js → 304 (1.9359ms)
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/index.css → 304 (26.4862ms)
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/swagger-ui.css → 304 (28.6133ms)
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (13.1173ms)
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 34.1985ms
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 43.4162ms
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 48.9663ms
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 49.6162ms
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (39.0620ms)
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 84.6303ms
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 136.411ms
+[2026-08-26 00:59:35 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-08-26 00:59:35 INF] HTTP GET /swagger/v1/swagger.json → 200 (46.5964ms)
+[2026-08-26 00:59:35 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 117.9026ms
+[2026-08-26 00:59:39 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 00:59:39 INF] CORS policy execution successful.
+[2026-08-26 00:59:39 INF] HTTP OPTIONS /api/auth/login → 204 (47.5482ms)
+[2026-08-26 00:59:39 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 73.1215ms
+[2026-08-26 00:59:39 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 00:59:39 INF] CORS policy execution successful.
+[2026-08-26 00:59:39 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 113
+[2026-08-26 00:59:43 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:59:43 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:59:43 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:59:43 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:59:43 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 86.735ms
+[2026-08-26 00:59:43 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:59:43 ERR] HTTP POST /api/auth/login → 500 (4339.0789ms)
+Microsoft.AspNetCore.Server.Kestrel.Core.BadHttpRequestException: Unexpected end of request content.
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.Http1ContentLengthMessageBody.ReadAsyncInternal(CancellationToken cancellationToken)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at System.IO.Pipelines.PipeReader.ReadAtLeastAsyncCore(Int32 minimumSize, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.PipeReadBufferState.ReadAsync(PipeReader utf8Json, CancellationToken cancellationToken, Boolean fillBuffer)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync[TReadBufferState,TStream](TStream utf8Json, TReadBufferState bufferState, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsObjectAsync(PipeReader utf8Json, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-08-26 00:59:43 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 499 null null 4626.5114ms
+[2026-08-26 00:59:44 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 00:59:44 INF] CORS policy execution successful.
+[2026-08-26 00:59:44 INF] HTTP OPTIONS /api/auth/login → 204 (4.0377ms)
+[2026-08-26 00:59:44 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 17.6443ms
+[2026-08-26 00:59:44 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 48
+[2026-08-26 00:59:44 INF] CORS policy execution successful.
+[2026-08-26 00:59:44 INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '8/25/2026 2:58:05 PM', Current time (UTC): '8/26/2026 7:59:44 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+[2026-08-26 00:59:44 INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '8/25/2026 2:58:05 PM', Current time (UTC): '8/26/2026 7:59:44 AM'.
+[2026-08-26 00:59:44 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:59:44 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:59:45 INF] Executed DbCommand (277ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 00:59:45 INF] Executed DbCommand (7ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:59:46 INF] Executed DbCommand (43ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 00:59:47 INF] Executed DbCommand (43ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:59:47 INF] Executed DbCommand (25ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:59:47 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:59:47 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:59:47 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 2194.5054ms
+[2026-08-26 00:59:47 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 3675.9982ms
+[2026-08-26 00:59:47 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:59:47 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 00:59:47 INF] HTTP POST /api/auth/login → 200 (2546.4149ms)
+[2026-08-26 00:59:47 INF] HTTP POST /api/auth/register → 200 (7324.3132ms)
+[2026-08-26 00:59:47 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 2555.7969ms
+[2026-08-26 00:59:47 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 7339.6395ms
+[2026-08-26 00:59:47 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-08-26 00:59:47 INF] CORS policy execution successful.
+[2026-08-26 00:59:47 INF] HTTP OPTIONS /api/tasks → 204 (1.5712ms)
+[2026-08-26 00:59:47 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 9.8142ms
+[2026-08-26 00:59:47 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 00:59:47 INF] CORS policy execution successful.
+[2026-08-26 00:59:47 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 00:59:47 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:59:47 INF] Executed DbCommand (20ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 00:59:47 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 00:59:47 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 174.4118ms
+[2026-08-26 00:59:47 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 00:59:47 INF] HTTP GET /api/tasks → 200 (266.2917ms)
+[2026-08-26 00:59:47 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 277.6535ms
+[2026-08-26 00:59:48 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 00:59:48 INF] CORS policy execution successful.
+[2026-08-26 00:59:48 INF] HTTP OPTIONS /api/auth/login → 204 (1.8305ms)
+[2026-08-26 00:59:48 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 11.2909ms
+[2026-08-26 00:59:48 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 00:59:48 INF] CORS policy execution successful.
+[2026-08-26 00:59:48 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:59:48 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 00:59:48 INF] Executed DbCommand (38ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 00:59:49 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 00:59:49 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 00:59:49 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 1195.732ms
+[2026-08-26 00:59:49 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 00:59:49 INF] HTTP POST /api/auth/login → 200 (1210.8478ms)
+[2026-08-26 00:59:49 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 1217.8885ms
+[2026-08-26 00:59:49 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-08-26 00:59:49 INF] CORS policy execution successful.
+[2026-08-26 00:59:49 INF] HTTP OPTIONS /api/tasks → 204 (3.3732ms)
+[2026-08-26 00:59:49 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 15.9639ms
+[2026-08-26 00:59:49 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 00:59:49 INF] CORS policy execution successful.
+[2026-08-26 00:59:49 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 00:59:49 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 00:59:49 INF] Executed DbCommand (14ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 00:59:49 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 00:59:49 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 34.2231ms
+[2026-08-26 00:59:49 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 00:59:49 INF] HTTP GET /api/tasks → 200 (69.7142ms)
+[2026-08-26 00:59:49 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 499 null application/json; charset=utf-8 85.5094ms
+[2026-08-26 01:00:03 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:00:03 INF] CORS policy execution successful.
+[2026-08-26 01:00:03 INF] HTTP OPTIONS /api/auth/login → 204 (5.0769ms)
+[2026-08-26 01:00:03 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 24.0167ms
+[2026-08-26 01:00:03 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:00:03 INF] CORS policy execution successful.
+[2026-08-26 01:00:03 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:00:03 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:00:04 INF] Executed DbCommand (43ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:00:04 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 01:00:04 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 98.3246ms
+[2026-08-26 01:00:04 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:00:04 INF] HTTP POST /api/auth/login → 401 (122.8275ms)
+[2026-08-26 01:00:04 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 135.5624ms
+[2026-08-26 01:00:04 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 110
+[2026-08-26 01:00:04 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:00:04 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:00:04 INF] Executed DbCommand (6ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:00:05 INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:00:05 INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:00:05 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:00:05 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 763.5216ms
+[2026-08-26 01:00:05 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:00:05 INF] HTTP POST /api/auth/register → 200 (777.0618ms)
+[2026-08-26 01:00:05 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 795.3653ms
+[2026-08-26 01:00:06 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:00:06 INF] CORS policy execution successful.
+[2026-08-26 01:00:06 INF] HTTP OPTIONS /api/auth/login → 204 (4.0560ms)
+[2026-08-26 01:00:06 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 15.1398ms
+[2026-08-26 01:00:06 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:00:06 INF] CORS policy execution successful.
+[2026-08-26 01:00:06 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:00:06 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:00:06 INF] Executed DbCommand (2ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:00:07 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:00:07 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:00:07 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 616.5168ms
+[2026-08-26 01:00:07 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:00:07 INF] HTTP POST /api/auth/login → 200 (631.6403ms)
+[2026-08-26 01:00:07 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 643.9517ms
+[2026-08-26 01:00:07 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-08-26 01:00:07 INF] CORS policy execution successful.
+[2026-08-26 01:00:07 INF] HTTP OPTIONS /api/tasks → 204 (3.8252ms)
+[2026-08-26 01:00:07 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 21.0857ms
+[2026-08-26 01:00:07 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 01:00:07 INF] CORS policy execution successful.
+[2026-08-26 01:00:07 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:00:07 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:00:07 INF] Executed DbCommand (5ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 01:00:07 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 01:00:07 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 21.4645ms
+[2026-08-26 01:00:07 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:00:07 INF] HTTP GET /api/tasks → 200 (49.5356ms)
+[2026-08-26 01:00:07 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 499 null application/json; charset=utf-8 61.6396ms
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/index.html → 304 (0.4544ms)
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 24.7549ms
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/swagger-ui.css → 304 (0.1575ms)
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/index.css → 304 (0.2372ms)
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 11.3534ms
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (0.1635ms)
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (0.0459ms)
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 37.169ms
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 27.0395ms
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 29.2959ms
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 34.6877ms
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/index.js → 304 (0.5482ms)
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 71.2913ms
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 68.6362ms
+[2026-08-26 01:01:59 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-08-26 01:01:59 INF] HTTP GET /swagger/v1/swagger.json → 200 (16.2902ms)
+[2026-08-26 01:01:59 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.9542ms
+[2026-08-26 01:02:21 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:02:21 INF] CORS policy execution successful.
+[2026-08-26 01:02:21 INF] HTTP OPTIONS /api/auth/login → 204 (4.4932ms)
+[2026-08-26 01:02:21 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 23.2067ms
+[2026-08-26 01:02:21 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:02:21 INF] CORS policy execution successful.
+[2026-08-26 01:02:21 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:02:21 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:02:21 INF] Executed DbCommand (9ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:02:21 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 01:02:21 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 28.3826ms
+[2026-08-26 01:02:21 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:02:21 INF] HTTP POST /api/auth/login → 401 (46.1767ms)
+[2026-08-26 01:02:21 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 53.6979ms
+[2026-08-26 01:02:21 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 112
+[2026-08-26 01:02:21 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:02:21 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:02:21 INF] Executed DbCommand (6ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:02:22 INF] Executed DbCommand (43ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:02:22 INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:02:22 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:02:22 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 666.9593ms
+[2026-08-26 01:02:22 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:02:22 INF] HTTP POST /api/auth/register → 200 (678.0242ms)
+[2026-08-26 01:02:22 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 685.9626ms
+[2026-08-26 01:02:23 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:02:23 INF] CORS policy execution successful.
+[2026-08-26 01:02:23 INF] HTTP OPTIONS /api/auth/login → 204 (2.2507ms)
+[2026-08-26 01:02:23 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 13.0925ms
+[2026-08-26 01:02:23 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:02:23 INF] CORS policy execution successful.
+[2026-08-26 01:02:23 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:02:23 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:02:23 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:02:24 INF] Executed DbCommand (37ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:02:24 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:02:24 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 632.3715ms
+[2026-08-26 01:02:24 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:02:24 INF] HTTP POST /api/auth/login → 200 (648.9893ms)
+[2026-08-26 01:02:24 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 658.9142ms
+[2026-08-26 01:02:24 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-08-26 01:02:24 INF] CORS policy execution successful.
+[2026-08-26 01:02:24 INF] HTTP OPTIONS /api/tasks → 204 (5.8213ms)
+[2026-08-26 01:02:24 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 25.1999ms
+[2026-08-26 01:02:24 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 01:02:24 INF] CORS policy execution successful.
+[2026-08-26 01:02:24 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:02:24 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:02:24 INF] Executed DbCommand (5ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 01:02:24 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 01:02:24 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 21.9704ms
+[2026-08-26 01:02:24 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:02:24 INF] HTTP GET /api/tasks → 200 (36.2897ms)
+[2026-08-26 01:02:24 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 499 null application/json; charset=utf-8 47.9478ms
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/index.html → 304 (0.6724ms)
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 14.4562ms
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/swagger-ui.css → 304 (0.1356ms)
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/index.css → 304 (0.1347ms)
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 8.904ms
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (0.1471ms)
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (0.1100ms)
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/index.js → 304 (0.4161ms)
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 23.1264ms
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 24.4656ms
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 30.8801ms
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 32.9049ms
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 35.2324ms
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.7296ms
+[2026-08-26 01:03:14 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-08-26 01:03:14 INF] HTTP GET /swagger/v1/swagger.json → 200 (11.0285ms)
+[2026-08-26 01:03:14 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.0847ms
+[2026-08-26 01:03:38 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:03:38 INF] CORS policy execution successful.
+[2026-08-26 01:03:38 INF] HTTP OPTIONS /api/auth/login → 204 (2.0844ms)
+[2026-08-26 01:03:38 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 17.6093ms
+[2026-08-26 01:03:38 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:03:38 INF] CORS policy execution successful.
+[2026-08-26 01:03:38 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:03:38 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:03:38 INF] Executed DbCommand (10ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:03:38 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 01:03:38 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 26.6814ms
+[2026-08-26 01:03:38 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:03:38 INF] HTTP POST /api/auth/login → 401 (40.7714ms)
+[2026-08-26 01:03:38 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 48.7464ms
+[2026-08-26 01:03:38 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 111
+[2026-08-26 01:03:38 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:03:38 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:03:38 INF] Executed DbCommand (5ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:03:39 INF] Executed DbCommand (42ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:03:39 INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:03:39 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:03:39 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 525.3679ms
+[2026-08-26 01:03:39 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:03:39 INF] HTTP POST /api/auth/register → 200 (540.8532ms)
+[2026-08-26 01:03:39 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 551.0557ms
+[2026-08-26 01:03:40 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:03:40 INF] CORS policy execution successful.
+[2026-08-26 01:03:40 INF] HTTP OPTIONS /api/auth/login → 204 (4.1546ms)
+[2026-08-26 01:03:40 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 14.2073ms
+[2026-08-26 01:03:40 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:03:40 INF] CORS policy execution successful.
+[2026-08-26 01:03:40 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:03:40 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:03:40 INF] Executed DbCommand (2ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:03:41 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:03:41 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:03:41 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 585.7829ms
+[2026-08-26 01:03:41 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:03:41 INF] HTTP POST /api/auth/login → 200 (604.5586ms)
+[2026-08-26 01:03:41 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 617.3237ms
+[2026-08-26 01:03:41 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-08-26 01:03:41 INF] CORS policy execution successful.
+[2026-08-26 01:03:41 INF] HTTP OPTIONS /api/tasks → 204 (1.5173ms)
+[2026-08-26 01:03:41 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 12.0825ms
+[2026-08-26 01:03:41 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 01:03:41 INF] CORS policy execution successful.
+[2026-08-26 01:03:41 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:03:41 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:03:41 INF] Executed DbCommand (5ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 01:03:41 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 01:03:41 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 20.9796ms
+[2026-08-26 01:03:41 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:03:41 INF] HTTP GET /api/tasks → 200 (42.1662ms)
+[2026-08-26 01:03:41 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 499 null application/json; charset=utf-8 56.0112ms
+[2026-08-26 01:17:15 INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-08-26 01:17:15 INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+[2026-08-26 01:17:15 INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+[2026-08-26 01:17:15 INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+[2026-08-26 01:17:15 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2026-08-26 01:17:15 INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2026-08-26 01:17:15 INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2026-08-26 01:17:15 INF] No migrations were applied. The database is already up to date.
+[2026-08-26 01:17:15 INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+[2026-08-26 01:17:15 INF] 🚀 TaskManagement API starting...
+[2026-08-26 01:17:15 INF] User profile is available. Using 'C:\Users\pc\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-08-26 01:17:15 INF] Now listening on: http://localhost:5000
+[2026-08-26 01:17:16 INF] Application started. Press Ctrl+C to shut down.
+[2026-08-26 01:17:16 INF] Hosting environment: Development
+[2026-08-26 01:17:16 INF] Content root path: D:\Project\TaskAPI\TaskManagement.API
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.html - null null
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/index.html → 304 (101.8125ms)
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.html - 304 null null 260.8939ms
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - null null
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - null null
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.css - null null
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - null null
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/index.js - null null
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 14941 application/javascript; charset=utf-8 13.9118ms
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/index.css → 304 (6.9947ms)
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/swagger-ui.css → 304 (11.5322ms)
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/swagger-ui-standalone-preset.js → 304 (3.0272ms)
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/index.js → 304 (1.5639ms)
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/swagger-ui-bundle.js → 304 (32.3634ms)
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.css - 304 null null 38.9821ms
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui.css - 304 null null 42.0631ms
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-standalone-preset.js - 304 null null 47.0206ms
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/index.js - 304 null null 50.9441ms
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/swagger-ui-bundle.js - 304 null null 58.9208ms
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 94.9923ms
+[2026-08-26 01:17:16 INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+[2026-08-26 01:17:16 INF] HTTP GET /swagger/v1/swagger.json → 200 (24.1378ms)
+[2026-08-26 01:17:16 INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.3704ms
+[2026-08-26 01:18:28 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 111
+[2026-08-26 01:18:28 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:28 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:29 INF] Executed DbCommand (75ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:18:31 INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:18:31 INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:31 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:31 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 3565.1277ms
+[2026-08-26 01:18:31 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:31 INF] HTTP POST /api/auth/register → 200 (3744.6941ms)
+[2026-08-26 01:18:31 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 3771.1808ms
+[2026-08-26 01:18:31 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 89
+[2026-08-26 01:18:31 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:31 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:32 INF] Executed DbCommand (13ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:33 INF] Executed DbCommand (45ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:33 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:33 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 1794.2609ms
+[2026-08-26 01:18:33 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:33 INF] HTTP POST /api/auth/login → 200 (1834.7756ms)
+[2026-08-26 01:18:33 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 1848.3034ms
+[2026-08-26 01:18:33 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 88
+[2026-08-26 01:18:33 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:33 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:33 INF] Executed DbCommand (8ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:33 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 01:18:33 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 65.8548ms
+[2026-08-26 01:18:33 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:33 INF] HTTP POST /api/auth/login → 401 (97.0516ms)
+[2026-08-26 01:18:33 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 111.0424ms
+[2026-08-26 01:18:33 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 110
+[2026-08-26 01:18:33 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:33 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:33 INF] Executed DbCommand (8ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:18:35 INF] Executed DbCommand (46ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:18:35 INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:35 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:35 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 1280.5697ms
+[2026-08-26 01:18:35 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:35 INF] HTTP POST /api/auth/register → 200 (1299.4227ms)
+[2026-08-26 01:18:35 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 1311.9479ms
+[2026-08-26 01:18:35 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 89
+[2026-08-26 01:18:35 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:35 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:35 INF] Executed DbCommand (7ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:36 INF] Executed DbCommand (21ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:36 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:36 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 909.7593ms
+[2026-08-26 01:18:36 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:36 INF] HTTP POST /api/auth/login → 200 (924.9910ms)
+[2026-08-26 01:18:36 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 936.0582ms
+[2026-08-26 01:18:36 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 115
+[2026-08-26 01:18:36 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:36 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:36 INF] Executed DbCommand (9ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:18:36 INF] Executed DbCommand (44ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:18:36 INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:36 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:36 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 683.9618ms
+[2026-08-26 01:18:36 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:36 INF] HTTP POST /api/auth/register → 200 (697.5131ms)
+[2026-08-26 01:18:36 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 707.2203ms
+[2026-08-26 01:18:36 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 95
+[2026-08-26 01:18:36 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:36 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:36 INF] Executed DbCommand (5ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:37 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 01:18:37 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 638.0556ms
+[2026-08-26 01:18:37 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] HTTP POST /api/auth/login → 401 (647.9331ms)
+[2026-08-26 01:18:37 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 664.0992ms
+[2026-08-26 01:18:37 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 54
+[2026-08-26 01:18:37 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:37 INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-08-26 01:18:37 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 51.0999ms
+[2026-08-26 01:18:37 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] HTTP POST /api/auth/register → 400 (64.8812ms)
+[2026-08-26 01:18:37 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 76.1675ms
+[2026-08-26 01:18:37 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 57
+[2026-08-26 01:18:37 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:37 INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-08-26 01:18:37 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 8.1706ms
+[2026-08-26 01:18:37 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] HTTP POST /api/auth/register → 400 (25.7798ms)
+[2026-08-26 01:18:37 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 41.6952ms
+[2026-08-26 01:18:37 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 60
+[2026-08-26 01:18:37 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:37 INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-08-26 01:18:37 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 3.9087ms
+[2026-08-26 01:18:37 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] HTTP POST /api/auth/register → 400 (18.6475ms)
+[2026-08-26 01:18:37 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 400 null application/problem+json; charset=utf-8 33.1695ms
+[2026-08-26 01:18:37 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 112
+[2026-08-26 01:18:37 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:37 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:37 INF] Executed DbCommand (7ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:18:38 INF] Executed DbCommand (40ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:18:38 INF] Executed DbCommand (9ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:38 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:38 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 641.2701ms
+[2026-08-26 01:18:38 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:38 INF] HTTP POST /api/auth/register → 200 (654.7418ms)
+[2026-08-26 01:18:38 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 663.9194ms
+[2026-08-26 01:18:38 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json; charset=utf-8 63
+[2026-08-26 01:18:38 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:38 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:38 INF] Executed DbCommand (6ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:39 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:39 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:39 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 623.6723ms
+[2026-08-26 01:18:39 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:39 INF] HTTP POST /api/auth/login → 200 (636.8813ms)
+[2026-08-26 01:18:39 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 650.9397ms
+[2026-08-26 01:18:39 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json; charset=utf-8 256
+[2026-08-26 01:18:39 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 01:18:39 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:39 INF] Executed DbCommand (43ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:39 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 01:18:39 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 150.7375ms
+[2026-08-26 01:18:39 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 01:18:39 INF] HTTP POST /api/tasks → 200 (387.5266ms)
+[2026-08-26 01:18:39 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 403.5342ms
+[2026-08-26 01:18:40 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json; charset=utf-8 231
+[2026-08-26 01:18:40 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:40 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:40 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 01:18:40 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 19.3093ms
+[2026-08-26 01:18:40 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] HTTP POST /api/tasks → 200 (41.2641ms)
+[2026-08-26 01:18:40 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 52.6844ms
+[2026-08-26 01:18:40 INF] Request starting HTTP/1.1 DELETE http://localhost:5000/api/tasks/38 - null null
+[2026-08-26 01:18:40 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Delete (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] Route matched with {action = "Delete", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(Int32) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:40 INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[Id] = @p
+[2026-08-26 01:18:40 INF] Executed DbCommand (44ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [Tasks]
+OUTPUT 1
+WHERE [Id] = @p0;
+[2026-08-26 01:18:40 INF] Executing StatusCodeResult, setting HTTP status code 204
+[2026-08-26 01:18:40 INF] Executed action TaskManagement.API.Controllers.TasksController.Delete (TaskManagement.API) in 204.6683ms
+[2026-08-26 01:18:40 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Delete (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] HTTP DELETE /api/tasks/38 → 204 (259.1217ms)
+[2026-08-26 01:18:40 INF] Request finished HTTP/1.1 DELETE http://localhost:5000/api/tasks/38 - 204 null null 273.0383ms
+[2026-08-26 01:18:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 01:18:40 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:40 INF] Executed DbCommand (7ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 01:18:40 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 01:18:40 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 67.3818ms
+[2026-08-26 01:18:40 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] HTTP GET /api/tasks → 200 (112.7350ms)
+[2026-08-26 01:18:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 129.9349ms
+[2026-08-26 01:18:40 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 01:18:40 INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+[2026-08-26 01:18:40 INF] AuthenticationScheme: Bearer was challenged.
+[2026-08-26 01:18:40 INF] HTTP GET /api/tasks → 401 (24.8219ms)
+[2026-08-26 01:18:40 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 401 0 null 42.6799ms
+[2026-08-26 01:18:40 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/tasks - application/json; charset=utf-8 289
+[2026-08-26 01:18:40 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] Route matched with {action = "Create", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(TaskManagement.Application.DTOs.CreateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:40 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Tasks] ([CreatedAt], [Description], [IsCompleted], [Title], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:40 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 01:18:40 INF] Executed action TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API) in 16.2527ms
+[2026-08-26 01:18:40 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Create (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] HTTP POST /api/tasks → 200 (28.5422ms)
+[2026-08-26 01:18:40 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/tasks - 200 null application/json; charset=utf-8 48.5147ms
+[2026-08-26 01:18:40 INF] Request starting HTTP/1.1 PUT http://localhost:5000/api/tasks/39 - application/json; charset=utf-8 255
+[2026-08-26 01:18:40 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.Update (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] Route matched with {action = "Update", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, TaskManagement.Application.DTOs.UpdateTaskDto) on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:40 INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[Id] = @p
+[2026-08-26 01:18:40 INF] Executed DbCommand (45ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 1000), @p2='?' (DbType = Boolean), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Tasks] SET [CreatedAt] = @p0, [Description] = @p1, [IsCompleted] = @p2, [Title] = @p3, [UserId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+[2026-08-26 01:18:40 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.TaskResponseDto'.
+[2026-08-26 01:18:40 INF] Executed action TaskManagement.API.Controllers.TasksController.Update (TaskManagement.API) in 92.7825ms
+[2026-08-26 01:18:40 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.Update (TaskManagement.API)'
+[2026-08-26 01:18:40 INF] HTTP PUT /api/tasks/39 → 200 (132.9789ms)
+[2026-08-26 01:18:40 INF] Request finished HTTP/1.1 PUT http://localhost:5000/api/tasks/39 - 200 null application/json; charset=utf-8 143.0749ms
+[2026-08-26 01:18:45 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:18:45 INF] CORS policy execution successful.
+[2026-08-26 01:18:45 INF] HTTP OPTIONS /api/auth/login → 204 (8.6619ms)
+[2026-08-26 01:18:45 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 23.8603ms
+[2026-08-26 01:18:45 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:18:45 INF] CORS policy execution successful.
+[2026-08-26 01:18:45 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:45 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:45 INF] Executed DbCommand (3ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:45 INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-08-26 01:18:45 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 18.5008ms
+[2026-08-26 01:18:45 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:45 INF] HTTP POST /api/auth/login → 401 (32.7182ms)
+[2026-08-26 01:18:45 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 40.182ms
+[2026-08-26 01:18:46 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/register - application/json; charset=utf-8 113
+[2026-08-26 01:18:46 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:46 INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(TaskManagement.Application.DTOs.RegisterDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:46 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @email) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+[2026-08-26 01:18:46 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 200), @p2='?' (DbType = Boolean), @p3='?' (Size = 100), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [IsPro], [Name], [PasswordHash], [ProExpiresAt], [Role])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6);
+[2026-08-26 01:18:46 INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:46 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:46 INF] Executed action TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API) in 699.1685ms
+[2026-08-26 01:18:46 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Register (TaskManagement.API)'
+[2026-08-26 01:18:46 INF] HTTP POST /api/auth/register → 200 (708.4263ms)
+[2026-08-26 01:18:46 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/register - 200 null application/json; charset=utf-8 724.8017ms
+[2026-08-26 01:18:47 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - null null
+[2026-08-26 01:18:47 INF] CORS policy execution successful.
+[2026-08-26 01:18:47 INF] HTTP OPTIONS /api/auth/login → 204 (2.1577ms)
+[2026-08-26 01:18:47 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/auth/login - 204 null null 13.2743ms
+[2026-08-26 01:18:47 INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 89
+[2026-08-26 01:18:47 INF] CORS policy execution successful.
+[2026-08-26 01:18:48 INF] Executing endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:48 INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(TaskManagement.Application.DTOs.LoginDto) on controller TaskManagement.API.Controllers.AuthController (TaskManagement.API).
+[2026-08-26 01:18:48 INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 200)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsPro], [u].[Name], [u].[PasswordHash], [u].[ProExpiresAt], [u].[Role]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @email
+[2026-08-26 01:18:48 INF] Executed DbCommand (36ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Boolean), @p3='?' (Size = 4000), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [RefreshTokens] ([CreatedAt], [ExpiresAt], [IsRevoked], [Token], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+[2026-08-26 01:18:48 INF] Executing OkObjectResult, writing value of type 'TaskManagement.Application.DTOs.AuthResponseWithRefreshDto'.
+[2026-08-26 01:18:48 INF] Executed action TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API) in 620.9949ms
+[2026-08-26 01:18:48 INF] Executed endpoint 'TaskManagement.API.Controllers.AuthController.Login (TaskManagement.API)'
+[2026-08-26 01:18:48 INF] HTTP POST /api/auth/login → 200 (643.3158ms)
+[2026-08-26 01:18:48 INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 659.4057ms
+[2026-08-26 01:18:48 INF] Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - null null
+[2026-08-26 01:18:48 INF] CORS policy execution successful.
+[2026-08-26 01:18:48 INF] HTTP OPTIONS /api/tasks → 204 (2.1728ms)
+[2026-08-26 01:18:48 INF] Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/tasks - 204 null null 14.0022ms
+[2026-08-26 01:18:48 INF] Request starting HTTP/1.1 GET http://localhost:5000/api/tasks - null null
+[2026-08-26 01:18:48 INF] CORS policy execution successful.
+[2026-08-26 01:18:48 INF] Executing endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:18:48 INF] Route matched with {action = "GetMyTasks", controller = "Tasks"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyTasks() on controller TaskManagement.API.Controllers.TasksController (TaskManagement.API).
+[2026-08-26 01:18:48 INF] Executed DbCommand (1ms) [Parameters=[@userId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[CreatedAt], [t].[Description], [t].[IsCompleted], [t].[Title], [t].[UserId]
+FROM [Tasks] AS [t]
+WHERE [t].[UserId] = @userId
+[2026-08-26 01:18:48 INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[TaskManagement.Domain.Entities.TaskItem, TaskManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[TaskManagement.Application.DTOs.TaskResponseDto, TaskManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-08-26 01:18:48 INF] Executed action TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API) in 22.6671ms
+[2026-08-26 01:18:48 INF] Executed endpoint 'TaskManagement.API.Controllers.TasksController.GetMyTasks (TaskManagement.API)'
+[2026-08-26 01:18:48 INF] HTTP GET /api/tasks → 200 (52.1210ms)
+[2026-08-26 01:18:48 INF] Request finished HTTP/1.1 GET http://localhost:5000/api/tasks - 499 null application/json; charset=utf-8 64.2796ms

@@ -1,0 +1,29 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## Test results
+TestResults/
+*.trx
+**/screenshots/*.png
+
+## Playwright
+**/bin/Debug/**/playwright*
+**/.playwright/
+
+## Secrets - never commit these
+appsettings.Development.json
+appsettings.test.json
+firebase-credentials.json
+*.pfx
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## IDE
+.idea/
+*.swp
