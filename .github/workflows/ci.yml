@@ -1,0 +1,92 @@
+name: CI - Build, Unit Tests, API Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: "Y"
+          MSSQL_SA_PASSWORD: "YourStrong@Passw0rd"
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd="exit 0"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore TaskManagement.slnx
+
+      - name: Build solution
+        run: dotnet build TaskManagement.slnx --no-restore --configuration Release
+
+      - name: Run Unit Tests
+        run: dotnet test TaskManagement.Tests.Unit --no-build --configuration Release --logger "trx;LogFileName=unit-results.trx"
+
+      - name: Create appsettings.test.json for API tests
+        shell: pwsh
+        run: |
+          $config = @{
+            ApiBaseUrl = "http://localhost:5000"
+            UiBaseUrl = "http://localhost:4200"
+            DbConnectionString = "Server=localhost,1433;Database=TaskManagementDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True;"
+            Endpoints = @{
+              Register = "/api/auth/register"
+              Login = "/api/auth/login"
+              RefreshToken = "/api/auth/refresh"
+              Tasks = "/api/tasks"
+            }
+            TestUser = @{
+              Email = "ci.automation@example.com"
+              Password = "Test@12345"
+              Name = "CI Automation"
+            }
+            Playwright = @{
+              Headless = $true
+              SlowMoMs = 0
+              DefaultTimeoutMs = 15000
+            }
+          }
+          $config | ConvertTo-Json -Depth 5 | Out-File -FilePath "TaskManagement.AutomationTests/appsettings.test.json" -Encoding utf8
+
+      - name: Install EF Core tools
+        run: dotnet tool install --global dotnet-ef
+
+      - name: Apply database migrations
+        run: dotnet ef database update --project TaskManagement.Infrastructure --startup-project TaskManagement.API --connection "Server=localhost,1433;Database=TaskManagementDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True;"
+
+      - name: Start API in background
+        shell: pwsh
+        run: |
+          $env:ConnectionStrings__Default = "Server=localhost,1433;Database=TaskManagementDb;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=True;"
+          Start-Process dotnet -ArgumentList "run --project TaskManagement.API --configuration Release --urls http://localhost:5000" -PassThru
+          Start-Sleep -Seconds 15
+
+      - name: Run API Tests
+        run: dotnet test TaskManagement.AutomationTests --no-build --configuration Release --filter "Category=API" --logger "trx;LogFileName=api-results.trx"
+
+      - name: Publish test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: "**/*.trx"
