@@ -36,12 +36,6 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore TaskManagement.slnx
 
-      - name: Build solution
-        run: dotnet build TaskManagement.slnx --no-restore --configuration Release
-
-      - name: Run Unit Tests
-        run: dotnet test TaskManagement.Tests.Unit --no-build --configuration Release --logger "trx;LogFileName=unit-results.trx"
-
       - name: Create appsettings.test.json for API tests
         shell: pwsh
         run: |
@@ -67,6 +61,12 @@ jobs:
             }
           }
           $config | ConvertTo-Json -Depth 5 | Out-File -FilePath "TaskManagement.AutomationTests/appsettings.test.json" -Encoding utf8
+
+      - name: Build solution
+        run: dotnet build TaskManagement.slnx --no-restore --configuration Release
+
+      - name: Run Unit Tests
+        run: dotnet test TaskManagement.Tests.Unit --no-build --configuration Release --logger "trx;LogFileName=unit-results.trx"
 
       - name: Install EF Core tools
         run: dotnet tool install --global dotnet-ef
